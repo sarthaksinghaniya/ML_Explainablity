@@ -84,7 +84,7 @@ ML Explainablity/
 │   └── FIFA_2018_Statistics.csv
 │
 ├── notebooks/                     # Jupyter notebooks
-│   ├── 01_data_loading_and_cleaning.ipynb
+│   ├── Use_Case_For_Model_Insights.ipynb
 │   └── [additional notebooks as project grows]
 │
 ├── src/                           # Helper functions and utilities
