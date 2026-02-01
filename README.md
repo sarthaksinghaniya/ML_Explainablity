@@ -85,6 +85,7 @@ ML Explainablity/
 │
 ├── notebooks/                     # Jupyter notebooks
 │   ├── Use_Case_For_Model_Insights.ipynb
+    ├─  Partial_Plots.ipynb
 │   └── [additional notebooks as project grows]
 │
 ├── src/                           # Helper functions and utilities
