@@ -7,8 +7,6 @@
 
 # Python cache and compiled files
 __pycache__/
-*.py[cod]
-*$py.class
 *.so
 
 # Virtual environments
@@ -18,9 +16,6 @@ env/
 .env/
 ENV/
 
-# Jupyter notebook checkpoints
-.ipynb_checkpoints/
-*.ipynb
 
 # OS generated files
 .DS_Store
