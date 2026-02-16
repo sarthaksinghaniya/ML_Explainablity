@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -9,6 +10,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix, classification_report
 
+os.makedirs("outputs", exist_ok=True)
+
 iris = load_iris()
 
 df = pd.DataFrame(iris.data, columns=iris.feature_names)
@@ -17,13 +20,15 @@ df['species'] = df['species'].map(dict(enumerate(iris.target_names)))
 
 print(df.head())
 
-sns.pairplot(df, hue="species")
-plt.show()
+pair = sns.pairplot(df, hue="species")
+pair.savefig("outputs/pairplot.png", dpi=300)
+plt.close()
 
 plt.figure(figsize=(8,6))
 sns.heatmap(df.drop("species", axis=1).corr(), annot=True, cmap="coolwarm")
 plt.title("Feature Correlation Heatmap")
-plt.show()
+plt.savefig("outputs/heatmap.png", dpi=300)
+plt.close()
 
 X = df.drop("species", axis=1)
 y = iris.target
@@ -54,7 +59,8 @@ sns.heatmap(cm, annot=True, fmt='d',
 plt.xlabel("Predicted")
 plt.ylabel("Actual")
 plt.title("Confusion Matrix")
-plt.show()
+plt.savefig("outputs/confusion_matrix.png", dpi=300)
+plt.close()
 
 X_vis = df.iloc[:, :2]
 y_vis = iris.target
@@ -88,4 +94,5 @@ plt.scatter(X_train_vis[:, 0], X_train_vis[:, 1],
 plt.title("SVM Decision Boundary (First 2 Features)")
 plt.xlabel(iris.feature_names[0])
 plt.ylabel(iris.feature_names[1])
-plt.show()
+plt.savefig("outputs/decision_boundary.png", dpi=300)
+plt.close()
